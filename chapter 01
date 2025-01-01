@@ -1,0 +1,45 @@
+CHAPTER 01 
+Q&A
+
+1. Operators and Values:
+    Operators: *, -, /, +
+   Values: 'hello', -88.8, 5
+
+2. Variables and Strings:
+    Variable: spam
+    String: 'spam'
+
+3. Three Data Types:
+    Integer
+    String
+    Floating-point number
+
+4. What is an expression made up of?
+    expression is made up of values, variables, and operators.
+   
+
+5. Difference between an expression and a statement:
+   expression evaluates to a value ( 2 + 3).
+   statement performs an action (spam = 10), 
+
+6. What does the variable bacon contain after the following code runs?
+   bacon = 20
+   bacon + 1 
+   Answer: bacon still contains 20.
+
+7. What should the following two expressions evaluate to?
+   'spam' + 'spamspam' 'spamspamspam'
+   'spam' * 3 'spamspamspam'
+
+8. Why is eggs a valid variable name while 100 is invalid?
+   eggs is valid because variable names can start with letters or underscores.
+   100 is invalid because variable names cannot start with a number.
+
+9. Three functions to get integer, floating-point, or string versions of a value:
+   int() for integers
+   float() for floating-point numbers
+   str() for strings
+
+10. Why does this expression cause an error? How can you fix it?
+  
+    Fix: Convert the integer 99 to a string using str(99),
