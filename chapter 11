@@ -1,0 +1,74 @@
+1Assert Statement for spam
+python
+assert not (isinstance(spam, int) and spam < 10), "spam is an integer less than 10"
+
+
+---
+
+ 2. Assert Statement for `eggs` and `bacon`
+python
+assert eggs.lower() != bacon.lower(), "eggs and bacon have the same string value (case-insensitive)"
+
+
+
+ 3.Assert Statement That Always Triggers** 
+python
+assert False, "This assertion always triggers"
+
+
+
+ 4.Two Lines Required for `logging.debug()`
+python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+ 5. Two Lines to Log Messages to a File
+python
+import logging
+logging.basicConfig(filename='programLog.txt', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+
+ 6.Five Logging Levels
+1. **DEBUG**: Detailed information, typically of interest only when diagnosing problems.
+2. **INFO**: Confirmation that things are working as expected.
+3. **WARNING**: An indication that something unexpected happened or indicative of some problem.
+4. **ERROR**: A more serious problem, indicating the program may not be able to continue running.
+5. **CRITICAL**: A very serious error, indicating the program itself may be unable to continue running.
+
+
+
+7. Disable All Logging Messages
+python
+logging.disable(logging.CRITICAL)
+
+This disables all messages of level *CRITICAL* and below.
+
+
+
+8. Why Is Logging Better Than print()?
+- Flexibility: Logging can log messages at different severity levels (DEBUG, INFO, WARNING, ERROR, CRITICAL), whereas print() does not provide such granularity.
+- Control: Logging can easily be enabled, disabled, or redirected to files or other destinations without changing the code.
+- Timestamps: Logs can automatically include timestamps and other metadata for debugging.
+- Scalability: Logging works well in large applications and is customizable, whereas print() clutters the code.
+- Separation of Concerns: Logging is specifically designed for diagnostic purposes and keeps debugging separate from standard program output.
+
+ 9. Differences Between Debugger Buttons
+- Step Over**: Executes the current line but skips over any function calls, treating them as a single step.
+- *Step In*: If the current line contains a function call, this button takes you into the function to debug its code line by line.
+- *Step Out*: Executes the remaining code in the current function and then pauses at the point where the function was called.
+b
+10. When Does the Debugger Stop After Continue?
+- The debugger stops when it encounters the next breakpoint or when the program terminates, whichever comes first.
+
+---
+
+11.What Is a Breakpoint?
+- A *breakpoint* is a designated line in your code where the debugger will pause execution, allowing you to inspect the program’s state.
+
+---
+
+12. Setting a Breakpoint in Mu
+- Open your Python file in Mu.
+- Locate the line where you want to set a breakpoint.
+- Click to the left of the line number in the margin. A red dot will appear, indicating a breakpoint.
