@@ -1,0 +1,35 @@
+chapter 5 
+
+1. The code for an empty dictionary 
+   python
+   {}
+   
+
+2.dictionary with a key 'foo' and a value 42
+   python
+   {'foo': 42}
+   
+
+3.  difference between a dictionary and  list is that dictionaries are unordered collections of key-value pairs, while lists are ordered collections of items accessed by their index positions.
+
+4. If you try to access spam['foo'] and spam is {'bar': 100}, you will get a KeyError because 'foo' is not a key in spam.
+
+5. 'cat' in spam checks if 'cat' is a key in spam, while 'cat' in spam.keys() explicitly checks the keys of spam to see if 'cat' is present. Both expressions are functionally the same, as in on a dictionary checks keys by default
+
+6. 'cat' in spam checks if 'cat' is a key in spam, while 'cat' in spam.values() checks if 'cat' is a value in spam
+
+7. A shortcut for  code
+   python
+   if 'color' not in spam:
+       spam['color'] = 'black'
+   
+   is:
+   python
+   spam.setdefault('color', 'black')
+   
+
+8. The pprint module and its pprint function can be used to “pretty print” dictionary values
+   python
+   from pprint import pprint
+   pprint(spam)
+   
