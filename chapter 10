@@ -1,0 +1,55 @@
+1. Difference between shutil.copy() and shutil.copytree()
+-shutil.copy()**: 
+  - Copies a single file from a source to a destination.
+  - Syntax: shutil.copy(src, dst)
+  - Example: shutil.copy("file.txt", "backup/") copies file.txt to the backup/ folder.
+  - It does not copy directories or subdirectories.
+
+-shutil.copytree()
+  - Copies an entire directory tree, including all files and subdirectories, from the source to the destination.
+  - Syntax: shutil.copytree(src, dst)
+  - Example: shutil.copytree("myfolder", "backup/") copies the myfolder directory and its entire contents to backup/.
+  - Creates the destination directory if it doesn't exist.
+
+
+
+2. Function used to rename files**
+-`os.rename() is used to rename files or move files to a new location.
+- Syntax: os.rename(src, dst)
+- Example:
+  python
+  import os
+  os.rename("oldname.txt", "newname.txt")
+  
+  This renames oldname.txt to newname.txt.
+
+3. Difference between delete functions in send2trash and shutil modules**
+- send2trash
+  - Sends files and directories to the Recycle Bin (Windows) or Trash (macOS/Linux).
+  - Does not permanently delete files, allowing recovery if needed.
+  - Example:
+    python
+    from send2trash import send2trash
+    send2trash("file.txt")
+    
+
+-shutil
+  - shutil.rmtree() is used to delete an entire directory tree permanently.
+  - No recovery options; deletes the data directly.
+  - Example:
+    python
+    import shutil
+    shutil.rmtree("folder")
+    
+
+---
+
+4. Equivalent of File objects’ open() method for ZipFile
+- The zipfile.ZipFile() constructor is equivalent to the open() method for file objects.
+- It is used to open, read, write, or append to a ZIP archive.
+- Syntax:
+  python
+  from zipfile import ZipFile
+  with ZipFile("example.zip", "w") as zip:
+      zip.write("file.txt")
+  
