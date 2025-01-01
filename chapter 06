@@ -1,0 +1,41 @@
+chapter 6 
+
+1. Escape characters are special characters in a string that are a backslash (\). allow you to include special characters, such as newline (\n) or tab (\t), or to escape quotes so they don't end the string prematurely
+.
+2. The \n escape character represents a newline  and \t represents a tab 
+
+3. To put a backslash (\) character in a string, use a double backslash: \\
+
+4. The string "Howl's Moving Castle" is valid because the string is enclosed in double quotes ("), allowing the single quote (') within the string to used without needing to  escaped.
+
+5.  write a string with newlines without using \n, you can use triple quotes:
+   python
+   """This is
+   a string
+   with newlines."""
+   
+
+6.
+   - 'Hello, world!'[1] → 'e'
+   - 'Hello, world!'[0:5] → 'Hello'
+   - 'Hello, world!'[:5] → 'Hello'
+   - 'Hello, world!'[3:] → 'lo, world!'
+
+7. 
+   - 'Hello'.upper() → 'HELLO'
+   - 'Hello'.upper().isupper() → True
+   - 'Hello'.upper().lower() → 'hello'
+
+8. 
+   - 'Remember, remember, the fifth of November.'.split() → ['Remember,', 'remember,', 'the', 'fifth', 'of', 'November.']
+   - '-'.join('There can be only one.'.split()) → 'There-can-be-only-one.'
+
+9. 
+   - Right-justify: .rjust(width)
+   - Left-justify: .ljust(width)
+   - Center: .center(width)
+
+10.  trim whitespace characters from the beginning or end of a string,
+   - .strip() to remove whitespace from both ends
+   - .lstrip() to remove whitespace from the beginning (left)
+   - .rstrip() to remove whitespace from the end (right)
