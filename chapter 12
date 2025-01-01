@@ -1,0 +1,133 @@
+1. Differences Between webbrowser, requests, bs4, and selenium
+- **webbrowser**: Opens URLs in a browser and is primarily used for automating simple tasks like launching web pages. It doesn't fetch or manipulate page content.
+- **requests**: A library for sending HTTP requests and fetching data from web servers. It is ideal for handling APIs and downloading web content.
+- **bs4 (BeautifulSoup): A library for parsing and navigating HTML/XML documents. It is often used in conjunction with requests for web scraping.
+- **selenium**: Automates web browsers by simulating user interactions (clicks, typing, etc.). Useful for dynamic content that requires JavaScript execution.
+
+---
+
+ 2. Type of Object Returned by requests.get() and Accessing Content as a String
+- *Type*: A Response object.
+- *Access as String*: Use the .text attribute to get the content as a string:
+  python
+
+---
+
+ 3. Method to Check if the Download Worked
+- Use the `.raise_for_status()` method of the `Response` object. It raises an exception if the HTTP request returned an error status code.
+
+---
+
+ 4. Getting the HTTP Status Code of a Requests Response
+- Access the `.status_code` attribute:
+  python
+  status_code = response.status_code
+  
+
+---
+
+ 5. Saving a Requests Response to a File
+- Write the response content to a file in binary mode:
+  python
+  with open("output.html", "wb") as file:
+      file.write(response.content)
+  
+
+---
+
+ 6. Keyboard Shortcut for Opening Developer Tools
+- **Windows/Linux**: `Ctrl + Shift + I`
+- **Mac**: `Cmd + Option + I`
+
+---
+
+ 7. Viewing HTML of a Specific Element in Developer Tools
+- Right-click on the element in the browser and select **Inspect** or **Inspect Element**.
+
+---
+
+ 8. CSS Selector for Element with an `id` of `main`
+css
+#main
+
+
+---
+
+9. CSS Selector for Elements with a CSS Class of `highlight`
+css
+.highlight
+
+
+---
+
+10. CSS Selector for All `<div>` Elements Inside Another `<div>`
+css
+div div
+
+
+---
+
+11. CSS Selector for a `<button>` Element with a `value` Attribute Set to `favorite`
+css
+button[value="favorite"]
+
+
+---
+
+ 12. Extracting String `Hello, world!` from a Beautiful Soup Tag
+- Use `.text` or `.string`:
+  python
+  content = spam.text  # or spam.string
+  
+
+---
+
+ 13. Storing Attributes of a Beautiful Soup Tag in `linkElem`
+- Use `.attrs`:
+  python
+  linkElem = spam.attrs
+  
+
+---
+
+ 14. Properly Importing the Selenium Module
+python
+from selenium import webdriver
+
+
+---
+
+ 15. Difference Between `find_element_*` and `find_elements_*`
+- **`find_element_*`**: Returns the first matching element.
+- **`find_elements_*`**: Returns a list of all matching elements.
+
+---
+
+ 16. Selenium Methods for Simulating Mouse Clicks and Keyboard Keys
+- **Mouse Click**: Use `.click()`:
+  python
+  element.click()
+  
+- **Keyboard Keys**: Use `.send_keys()`:
+  python
+  element.send_keys("text")
+  
+
+---
+ 17. Easier Way to Submit a Form with Selenium
+- Call `.submit()` on the WebElement representing the form:
+  python
+  form.submit()
+  
+
+---
+
+18. Simulating Browser Navigation with Selenium
+- **Forward**: `driver.forward()`
+- **Back**: `driver.back()`
+- **Refresh**: `driver.refresh()`
+  python
+  driver.forward()
+  driver.back()
+  driver.refresh()
+  ```
