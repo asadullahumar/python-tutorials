@@ -1,0 +1,190 @@
+chapter 7                                             1 What is the function that creates Regex objects?
+
+   The function creates Regex objects is re.compile().
+
+
+
+2 Why are raw strings often used when creating Regex objects?
+
+   Raw strings are used they prevent Python interpreting backslashes (\) escape characters. In regular expressions, backslashes commonly used to escape special characters, so using raw strings (r"...") makes  regex easier to read and avoids needing to double the backslashes (e.g., \\d vs. r"\d")
+
+
+3 What does the search() method return?
+
+   The search() method returns a Match object if the pattern is found anywhere in the string. If no match is found, it returns None.
+
+
+
+4 How do you get the actual strings that match the pattern from a Match object?
+
+   You can use the group() method on a Match object to get the strings that matched. group(0) returns the entire match, and group(n) returns the match for the nth capturing group.
+
+
+
+5 In the regex created from r'(\d\d\d)-(\d\d\d-\d\d\d\d)', what does group 0 cover? Group 1? Group 2?
+
+   - Group 0: Covers the entire matched string (e.g., "123-456-7890").
+   - Group 1: Covers the first capturing group (the area matching the first 3 digits, e.g., "123").
+   - Group 2: Covers the second capturing group (the area matching the second part, e.g., "456-7890").
+
+
+
+6. *Parentheses and periods have specific meanings in regular expression syntax. How would you specify that you want a regex to match actual parentheses and period characters?*
+
+   You can escape these special characters using a backslash (\). For example:
+   - To match parentheses: \( and \)
+   - To match a period: \.
+
+---
+
+7. **The findall() method returns a list of strings or a list of tuples of strings. What makes it return one or the other?**
+
+   If the pattern has no capturing groups, findall() returns a list of strings. If the pattern has one or more capturing groups, findall() returns a list of tuples, with each tuple containing the matched groups.
+
+---
+
+8. **What does the | character signify in regular expressions?**
+
+   The | character acts as a logical "or" operator. It allows you to match either the pattern on the left or the pattern on the right. For example, a|b matches either "a" or "b".
+
+---
+
+9. **What two things does the ? character signify in regular expressions?**
+
+   - It makes the preceding character or group optional (matches 0 or 1 occurrence).
+   - It also modifies quantifiers like * and + to make them non-greedy. For example, .*? matches as few characters as possible.
+
+---
+
+10. **What is the difference between the + and * characters in regular expressions?**
+
+   - + matches *one or more* of the preceding character or group.
+   - * matches *zero or more* of the preceding character or group.
+
+---
+
+11. **What is the difference between {3} and {3,5} in regular expressions?**
+
+   - {3} matches exactly 3 occurrences of the preceding character or group.
+   - {3,5} matches between 3 and 5 occurrences of the preceding character or group (inclusive).
+
+---
+
+12. **What do the \d, \w, and \s shorthand character classes signify in regular expressions?**
+
+   - \d matches any *digit* (0-9).
+   - \w matches any *word character*, which includes letters, digits, and underscores (a-z, A-Z, 0-9, and _).
+   - \s matches any *whitespace character* (spaces, tabs, newlines).
+
+---
+
+13. **What do the \D, \W, and \S shorthand character classes signify in regular expressions?**
+
+   - \D matches any *non-digit* character.
+   - \W matches any *non-word* character (anything other than [a-zA-Z0-9_]).
+   - \S matches any *non-whitespace* character.
+
+---
+
+14. **What is the difference between .* and .*???**
+
+   - .* is *greedy*, meaning it will match as many characters as possible while still allowing the overall regex to match.
+   - .*?? is *non-greedy*, meaning it will match as few characters as possible while still allowing the overall regex to match.
+
+---
+
+15. *What is the character class syntax to match all numbers and lowercase letters?*
+
+   You can use [0-9a-z] to match all digits and lowercase letters.
+
+---
+
+16. *How do you make a regular expression case-insensitive?*
+
+   You can pass re.IGNORECASE (or re.I) as a flag to the re.compile() function or use it directly in methods like re.search().
+
+   Example: re.compile(r'abc', re.IGNORECASE) or re.search(r'abc', 'ABC', re.I).
+
+---
+
+17. **What does the . character normally match? What does it match if re.DOTALL is passed as the second argument to re.compile()?**
+
+   - The . character normally matches any *character except a newline*.
+   - If re.DOTALL is passed, . will also match *newlines* (\n), meaning it matches any character including newlines.
+
+---
+
+18. **If numRegex = re.compile(r'\d+'), what will numRegex.sub('X', '12 drummers, 11 pipers, five rings, 3 hens') return?**
+
+   It will replace all sequences of digits with 'X'. The result would be:
+
+   
+   'X drummers, X pipers, five rings, X hens'
+   
+
+---
+
+19. **What does passing re.VERBOSE as the second argument to re.compile() allow you to do?**
+
+   The re.VERBOSE flag allows you to write more readable regular expressions by ignoring whitespace and allowing comments within the regex pattern.
+
+   Example:
+
+   python
+   regex = re.compile(r"""
+       \d{3}  # Area code
+       -      # Hyphen
+       \d{3}  # First three digits
+       -      # Hyphen
+       \d{4}  # Last four digits
+   """, re.VERBOSE)
+   
+
+---
+
+20. *How would you write a regex that matches a number with commas for every three digits?*
+
+   The regex to match numbers with commas every three digits (but not numbers like '12,34,567' or '1234') would be:
+
+   python
+   r'^\d{1,3}(?:,\d{3})*$'
+   
+
+   Explanation:
+   - \d{1,3}: Matches 1 to 3 digits at the start.
+   - (?:,\d{3})*: Non-capturing group that matches a comma followed by exactly 3 digits, zero or more times.
+   - ^ and $: Ensure the entire string matches the pattern.
+
+---
+
+21. *How would you write a regex that matches the full name of someone whose last name is Watanabe?*
+
+   The regex would be:
+
+   python
+   r'^[A-Z][a-z]* Watanabe$'
+   
+
+   Explanation:
+   - ^[A-Z][a-z]*: Matches a first name that starts with a capital letter and is followed by any lowercase letters.
+   - Watanabe: Matches the last name exactly.
+   - ^ and $: Ensure the entire string matches the pattern.
+
+---
+
+22. *How would you write a regex that matches a sentence where the first word is either Alice, Bob, or Carol; the second word is either eats, pets, or throws; the third word is apples, cats, or baseballs; and the sentence ends with a period?*
+
+   The regex would be:
+
+   python
+   r'^(Alice|Bob|Carol) (eats|pets|throws) (apples|cats|baseballs)\.$'
+   
+
+   Explanation:
+   - (Alice|Bob|Carol): Matches one of the names.
+   - (eats|pets|throws): Matches one of the verbs.
+   - (apples|cats|baseballs): Matches one of the objects.
+   - \.$: Ensures the sentence ends with a period.
+   - ^ and $: Ensure the entire string matches.
+
+   To make it case-insensitive, add re.IGNORECASE or re.I  a flag when compiling regex.
