@@ -1,0 +1,41 @@
+Chapter 4 
+
+1. [] is an empty list
+
+2. To assign the value 'hello' as the third value in a list stored in spam:
+   python
+   spam[2] = 'hello'
+   
+
+3. spam[int(int('3' * 2) // 11)] evaluates to 'd'.
+   Explanation: '3' * 2 becomes '33', int('33') is 33, 33 // 11 is 3, so spam[3] is 'd'.
+
+4. spam[-1] evaluates to 'd', the last element in spam.
+
+5. spam[:2] evaluates to ['a', 'b'], which is a slice of the first two elements.
+
+For the following questions, bacon contains [3.14, 'cat', 11, 'cat', True].
+
+6. bacon.index('cat') evaluates to 1, the index of the first occurrence of 'cat'.
+
+7. After bacon.append(99), bacon becomes [3.14, 'cat', 11, 'cat', True, 99].
+
+8. After bacon.remove('cat'), bacon becomes [3.14, 11, 'cat', True], as it removes the first occurrence of 'cat'.
+
+9. The operators for list concatenation and list replication are + (concatenation) and * (replication).
+
+10. append() adds an item to the end of the list, while insert() adds an item at a specific index in the list.
+
+11. Two ways to remove values from a list are remove() and pop().
+
+12. Lists and strings are similar in that they are both sequences, meaning you can index, slice, and iterate over both.
+
+13. The difference between lists and tuples is that lists are mutable (can be modified), while tuples are immutable (cannot be modified).
+
+14. The tuple value that has just the integer value 42 is written as (42,).
+
+15. To convert a list to a tuple, use tuple(list_value), and to convert a tuple to a list, use list(tuple_value).
+
+16. Variables that “contain” list values actually contain references to the list objects, not the lists themselves.
+
+17. copy.copy() creates a shallow copy of a list, copying only the list itself, while copy.deepcopy() creates a deep copy, copying the list and all nested objects within it.
