@@ -1,0 +1,64 @@
+
+
+1. **What three files do you need for EZSheets to access Google Sheets?**  
+   You need the following files for authentication:  
+   - `credentials.json`: Contains the credentials for your Google Cloud project.  
+   - `token.json`: Stores the OAuth 2.0 access token.  
+   - A service account credentials file (if you’re using a service account).
+
+2. **What two types of objects does EZSheets have?**  
+   - `Spreadsheet` objects: Represent an entire Google Sheets spreadsheet.  
+   - `Sheet` objects: Represent individual sheets within a spreadsheet.
+
+3. **How can you create an Excel file from a Google Sheet spreadsheet?**  
+   Use the `downloadAsExcel()` method on a `Spreadsheet` object:  
+   ```python
+   ss.downloadAsExcel('filename.xlsx')
+   ```
+
+4. **How can you create a Google Sheet spreadsheet from an Excel file?**  
+   Use the `upload()` function and pass the Excel file as an argument:  
+   ```python
+   import ezsheets
+   ss = ezsheets.upload('filename.xlsx')
+   ```
+
+5. **The `ss` variable contains a `Spreadsheet` object. What code will read data from the cell B2 in a sheet titled “Students”?**  
+   ```python
+   value = ss['Students'].get('B2')
+   ```
+
+6. **How can you find the column letters for column 999?**  
+   Use the `ezsheets.getColumnLetterOf()` function:  
+   ```python
+   import ezsheets
+   column_letter = ezsheets.getColumnLetterOf(999)
+   ```
+
+7. **How can you find out how many rows and columns a sheet has?**  
+   Use the `rowCount` and `columnCount` attributes of a `Sheet` object:  
+   ```python
+   rows = sheet.rowCount
+   columns = sheet.columnCount
+   ```
+
+8. **How do you delete a spreadsheet? Is this deletion permanent?**  
+   Use the `delete()` method on a `Spreadsheet` object:  
+   ```python
+   ss.delete()
+   ```  
+   The deletion is **permanent**, so you should proceed with caution.
+
+9. **What functions will create a new `Spreadsheet` object and a new `Sheet` object, respectively?**  
+   - To create a new `Spreadsheet` object:  
+     ```python
+     import ezsheets
+     ss = ezsheets.createSpreadsheet('Spreadsheet Name')
+     ```  
+   - To create a new `Sheet` object:  
+     ```python
+     sheet = ss.createSheet('Sheet Name')
+     ```
+
+10. **What will happen if, by making frequent read and write requests with EZSheets, you exceed your Google account’s quota?**  
+    If you exceed your Google account’s API quota, your requests will temporarily fail, and you may receive rate-limiting errors. You’ll need to wait until the quota resets (usually after 24 hours). To avoid this, you should minimize unnecessary read/write operations.
